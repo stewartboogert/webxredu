@@ -95,7 +95,7 @@
             scene.createDefaultEnvironment();
         
             // XR
-            const xrHelper = await scene.createDefaultXRExperienceAsync();
+            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [environment.ground]});
         
             return scene;
         
