@@ -5,8 +5,9 @@
 
         <title>Babylon.js sample code</title>
 
-	<!-- variant launch -->
+	<!-- variant launch
 	<script src="https://launchar.app/sdk/v1?key=YOUR_SDK_KEY&redirect=true"></script>
+	-->
 	
         <!-- Babylon.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
@@ -95,15 +96,12 @@
             scene.createDefaultEnvironment();
         
             // XR
-            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [environment.ground]});
+            const xrHelper = await scene.createDefaultXRExperienceAsync();
         
             return scene;
         
         };
-                window.initFunction = async function() {
-                    
-                    
-                    
+                window.initFunction = async function() {                                                         
                     var asyncEngineCreation = async function() {
                         try {
                         return createDefaultEngine();
