@@ -95,8 +95,12 @@
             scene.createDefaultEnvironment();
         
             // XR
-            const xrHelper = await scene.createDefaultXRExperienceAsync(floorMeshes: [environment.ground]);
-        
+            const xrHelper = await scene.createDefaultXRExperienceAsync({
+		    uiOptions: {
+		    sessionMode: "immersive-ar",
+		    },
+		    });
+		    
             return scene;
         
         };
