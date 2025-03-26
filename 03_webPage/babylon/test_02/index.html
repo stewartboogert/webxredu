@@ -100,6 +100,16 @@
 		    sessionMode: "immersive-ar",
 		    },
 		    });
+
+	    // Enable hit-testing feature to detect surfaces
+            const xrBackgroundRemover = xrHelper.baseExperience.featuresManager.enableFeature(BABYLON.WebXRBackgroundRemover, "latest", {
+		    environmentHelperRemovalFlags: {
+		    skyBox: true,
+		    ground: false},
+		    });
+
+		    
+		    
 		    
             return scene;
         
