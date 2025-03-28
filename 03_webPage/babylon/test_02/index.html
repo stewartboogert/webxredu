@@ -91,7 +91,7 @@
         
             // Move the sphere upward 1/2 its height
             sphere.position.y = 1;
-        
+
             scene.createDefaultEnvironment();
         
             // XR
@@ -104,7 +104,7 @@
 	    // Enable hit-testing feature to detect surfaces
             const xrBackgroundRemover = xrHelper.baseExperience.featuresManager.enableFeature(BABYLON.WebXRBackgroundRemover, "latest", {
 		    environmentHelperRemovalFlags: {
-		    skyBox: true,
+		    skyBox: false,
 		    ground: false},
 		    });
 
