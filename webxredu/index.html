@@ -5,6 +5,9 @@
 </head>
 <body>
 <h1>XR eduction viewer</h1>
+<div class="select">
+    <label for="videoSource">Video source: </label><select id="videoSource"></select>
+</div>
 <canvas id="c"></canvas>
 <script  type="importmap"> {
     "imports": {
@@ -13,5 +16,6 @@
     }
     }</script>
 </body>
+<script type="module" src="scripts/webxredu.js"></script>
 <script type="module" src="scripts/threejs_videofeedthrough.js"></script>
 </html>

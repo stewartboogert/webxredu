@@ -7,7 +7,7 @@ import { VRButton } from 'three/addons/webxr/VRButton.js';
 function main() {
     const canvas = document.querySelector( '#c' );
     const renderer = new THREE.WebGLRenderer( { antialias: true, canvas } );
-    renderer.xr.enabled = true;
+    // renderer.xr.enabled = true;
     // document.body.appendChild( VRButton.createButton( renderer ) );
 
     const fov = 75;
