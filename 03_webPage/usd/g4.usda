@@ -1,0 +1,159 @@
+#usda 1.0
+(
+    """ This file describes an example schema for code generation using
+        usdGenSchema.
+    """
+    subLayers = [
+        # To refer to schema types defined in schema.usda files from other
+        # libraries, simply add comma-separated lines of the form
+        # @<library name>/schema.usda@. In this example, we're referring
+        # to schema types from 'usd'. If you were adding sub-classes of
+        # UsdGeom schema types, you would use usdGeom/schema.usda instead.
+        @usd/schema.usda@,
+	@usdGeom/schema.usda@
+    ]
+)
+
+over "GLOBAL" (
+    customData = {
+        string libraryName       = "G4"
+        string libraryPath       = "./"
+        string libraryPrefix     = "G4"
+    }
+) {
+}
+
+class "VSolid" (
+    inherits = </Mesh>
+    customData = {
+        string className = "VSolid"
+    }
+)  {
+    string name = "name"
+    string g4type = "VSolid"
+    string length_unit = "mm"
+    string angle_unit = "rad"
+}    
+
+class Box "Box" (
+    inherits = </VSolid>
+    
+    customData = {
+        string className = "Box"
+    }
+)  {
+    string g4type = "Box"
+    double x = 0
+    double y = 0
+    double z = 0
+}
+
+class Tubs "Tubs" (
+    inherits = </VSolid>
+    
+    customData = {
+        string className = "Tubs"
+    }
+)  {
+    string g4type = "Tubs"
+    double r1 = 0
+    double r2 = 0
+    double z = 0 
+}
+
+class BooleanSolid "BooleanSolid" (
+  inherits = </Scope>
+
+  customData = {
+    string className = "BooleanSolid"
+  }
+) {
+    string g4type = "BooleanSolid"
+    string solid1prim = "none"
+    string solid2prim = "none"
+    string solid3prim = "none"
+}
+
+class DisplacedSolid "DisplacedSolid" (
+   inherits = </Xform>
+
+   customData = {
+     string className = "DisplacedSolid"
+   }
+) {
+    string g4type = "DisplacedSolid"
+    double3 translation = (0,0,0)
+    double3 rotation = (0,0,0)
+}
+
+class Subtraction "Subtraction" (
+  inherits = </BooleanSolid>
+
+  customData = {
+    string className = "Subtraction" 
+  }
+) {
+    string g4type = "Subtraction"
+}
+
+class Union "Union" (
+  inherits = </BooleanSolid>
+
+  customData = {
+    string className = "Union" 
+  }
+) {
+    string g4type = "Union"
+}
+
+class Intersection "Intersection" (
+  inherits = </BooleanSolid>
+
+  customData = {
+    string className = "Intersection" 
+  }
+) {
+    string g4type = "Intersection"
+
+}
+
+class MultiUnion "MultiUnion" (
+  inherits = </Scope>
+
+  customData = {
+    string className = "MultiUnion"
+  }
+) {
+    string g4type = "MultiUnion"
+    string[] solidprims = []
+    string solid3prim = "none"
+}
+
+class Logical "Logical" (
+    inherits = </Scope>
+
+    customData = {
+         string className = "Logical"
+    }
+) {
+    string g4type = "Logical"
+    string solidprim = "none"
+    string materialprim = "none"
+    string fieldprim = "none"
+    string sensitiveprim = "none"
+    string limitsprim = "none"
+    string[] daughters = []
+}
+
+class Placement "Placement" (
+    inherits = </Xform>
+
+    customData = {
+         string className = "Placement"
+    }
+) {
+    string g4type = "Placement"
+    string logicalprim = "none"
+    double3 translation = (0,0,0)
+    double3 rotation = (0,0,0)
+}
